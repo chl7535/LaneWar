@@ -18,6 +18,8 @@ namespace LaneWar.Enemies
         }
 
         public Vector3 CurrentPosition => _pathSystem.GetPositionAtProgress(_currentIndex, _segmentT);
+        public int CurrentIndex => _currentIndex;
+        public float SegmentT => _segmentT;
 
         // speed(단위/초)만큼 진행도를 갱신하고 새 월드 좌표를 반환한다. 마지막 지점 도달 시 처음으로 순환한다
         public Vector3 Advance(float speed, float deltaTime)

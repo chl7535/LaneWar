@@ -11,6 +11,9 @@ namespace LaneWar.Systems
         [SerializeField] private RoundManager roundManager;
         [SerializeField] private RoundConfig roundConfig;
         [SerializeField] private PathController pathController;
+        [SerializeField] private EnemyFlowManager flowManager;
+        [SerializeField] private EnemyRegistry enemyRegistry;
+        [SerializeField] private CurrencyManager currencyManager;
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private Transform enemyContainer;
 
@@ -47,10 +50,23 @@ namespace LaneWar.Systems
             GameObject instance = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, enemyContainer);
 
             EnemyMovement movement = instance.GetComponent<EnemyMovement>();
-            movement.Initialize(pathController);
+            movement.Initialize(flowManager);
+
+            Enemy enemy = instance.GetComponent<Enemy>();
+            enemy.Died += HandleEnemyDied;
+            enemyRegistry.Register(enemy);
 
             _spawnedThisRound++;
             roundManager.NotifyEnemySpawned();
+        }
+
+        // 사망한 적을 타겟팅 레지스트리에서 제거하고, 라운드 생존 카운트 감소 + 처치 보상 지급을 처리한다
+        private void HandleEnemyDied(Enemy enemy)
+        {
+            enemy.Died -= HandleEnemyDied;
+            enemyRegistry.Unregister(enemy);
+            roundManager.NotifyEnemyDied();
+            currencyManager.AddGold(enemy.KillReward);
         }
     }
 }

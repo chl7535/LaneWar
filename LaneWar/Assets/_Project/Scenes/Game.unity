@@ -119,6 +119,96 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &17007972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 17007977}
+  - component: {fileID: 17007976}
+  - component: {fileID: 17007975}
+  - component: {fileID: 17007974}
+  - component: {fileID: 17007973}
+  m_Layer: 0
+  m_Name: Economy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &17007973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17007972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f70dab877c2b4c4b82b87e3397fe017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.EconomyController
+  roundManager: {fileID: 712391120}
+  roundConfig: {fileID: 11400000, guid: 463ee343a0d4c9c4fb94c3ebf0301f73, type: 2}
+  currencyManager: {fileID: 17007976}
+--- !u!114 &17007974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17007972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819476c0dccca144dbbc81fac7519d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.GachaSystem
+  gachaConfig: {fileID: 11400000, guid: f680630db7aaa404c9a428cb5d38fb08, type: 2}
+  currencyManager: {fileID: 17007976}
+  inventoryManager: {fileID: 17007975}
+--- !u!114 &17007975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17007972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7673c9e9b70324a8d9f4b93d30785f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Core.UnitInventoryManager
+--- !u!114 &17007976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17007972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6de4f0d84ed07340bf51cd4e8b891ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Core.CurrencyManager
+  economyConfig: {fileID: 11400000, guid: 1938573dea22cb24d93f5099ed84fbd5, type: 2}
+--- !u!4 &17007977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17007972}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113146756
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +333,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1544659321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &427319931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 427319933}
+  - component: {fileID: 427319932}
+  m_Layer: 0
+  m_Name: UnitPlacementController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &427319932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427319931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad96e92c72ad254d86221ad07dce5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.UnitPlacementController
+  fallbackUnitPrefab: {fileID: 4278161774822724922, guid: a4c6eecdfd65e6a4b9cb1197b2ee6cf1, type: 3}
+  pathController: {fileID: 1544659320}
+  flowConfig: {fileID: 11400000, guid: d73a2f525eed5d84e9daf505a9698051, type: 2}
+  enemyRegistry: {fileID: 2102126023}
+  inventoryManager: {fileID: 17007975}
+  raycastCamera: {fileID: 656583126}
+  unitContainer: {fileID: 1742836060}
+--- !u!4 &427319933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427319931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &656583124
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +488,7 @@ GameObject:
   - component: {fileID: 712391120}
   - component: {fileID: 712391119}
   - component: {fileID: 712391118}
+  - component: {fileID: 712391122}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -367,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.UI.RoundDebugHud
   roundManager: {fileID: 712391120}
+  placementController: {fileID: 427319932}
 --- !u!114 &712391119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +525,9 @@ MonoBehaviour:
   roundManager: {fileID: 712391120}
   roundConfig: {fileID: 11400000, guid: 463ee343a0d4c9c4fb94c3ebf0301f73, type: 2}
   pathController: {fileID: 1544659320}
+  flowManager: {fileID: 1776744947}
+  enemyRegistry: {fileID: 2102126023}
+  currencyManager: {fileID: 17007976}
   enemyPrefab: {fileID: 101161497321106371, guid: 99edad0bf28a1a94fa8bc39ba6c3114a, type: 3}
   enemyContainer: {fileID: 312565458}
 --- !u!114 &712391120
@@ -412,6 +558,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712391122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712391117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a383a87354017c244bb19131456d245f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.UI.EconomyDebugUI
+  currencyManager: {fileID: 17007976}
+  gachaSystem: {fileID: 17007974}
+  inventoryManager: {fileID: 17007975}
+  placementController: {fileID: 427319932}
 --- !u!1 &887762815
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +730,37 @@ Transform:
   - {fileID: 2106002918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1742836059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1742836060}
+  m_Layer: 0
+  m_Name: UnitContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1742836060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742836059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1745868850
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +870,52 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1776744946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1776744948}
+  - component: {fileID: 1776744947}
+  m_Layer: 0
+  m_Name: EnemyFlowManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1776744947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776744946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0c4fab8d42cf64e894f1d9d389df3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.EnemyFlowManager
+  pathController: {fileID: 1544659320}
+  flowConfig: {fileID: 11400000, guid: d73a2f525eed5d84e9daf505a9698051, type: 2}
+--- !u!4 &1776744948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776744946}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -839,6 +1078,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1544659321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2102126022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2102126024}
+  - component: {fileID: 2102126023}
+  m_Layer: 0
+  m_Name: EnemyRegistry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2102126023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102126022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd48f00c5904124a881b730fa8bd06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.EnemyRegistry
+--- !u!4 &2102126024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102126022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106002917
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,3 +1163,8 @@ SceneRoots:
   - {fileID: 1544659321}
   - {fileID: 312565458}
   - {fileID: 712391121}
+  - {fileID: 1776744948}
+  - {fileID: 2102126024}
+  - {fileID: 1742836060}
+  - {fileID: 427319933}
+  - {fileID: 17007977}

@@ -47,6 +47,11 @@ namespace LaneWar.Core
             _stateMachine.NotifyEnemySpawned();
         }
 
+        public void NotifyEnemyDied()
+        {
+            _stateMachine.NotifyEnemyDied();
+        }
+
         private void HandleStateChanged(RoundState state)
         {
             StateChanged?.Invoke(state);

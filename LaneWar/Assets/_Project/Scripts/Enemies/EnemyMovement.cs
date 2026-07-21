@@ -1,45 +1,64 @@
 using UnityEngine;
-using LaneWar.Core;
+using LaneWar.Systems;
 
 namespace LaneWar.Enemies
 {
-    // PathController가 제공하는 경로를 따라 이동하고, 마지막 지점에서 처음으로 순환하는 적 이동 뷰 컴포넌트
+    // EnemyFlowManager가 계산한 위치(경로 추종 + 자유 회피)를 매 프레임 반영하는 적 이동 뷰 컴포넌트
     public class EnemyMovement : MonoBehaviour
     {
-        [SerializeField] private PathController pathController;
+        [SerializeField] private EnemyFlowManager flowManager;
         [SerializeField] private float moveSpeed = 3f;
+        [SerializeField] private float speedMultiplier = 1f;
 
-        private EnemyPathMover _mover;
+        private EnemyFlowAgent _agent;
 
-        private void Start()
+        // 최종 이동 속도 배율 훅. 스턴(0)/슬로우(0.5 등) 스킬이 실시간으로 설정해 정체를 유발할 수 있다. 스킬 로직은 아직 없다
+        public float SpeedMultiplier
         {
-            if (pathController != null)
+            get => speedMultiplier;
+            set
             {
-                InitializeMover();
+                speedMultiplier = value;
+                if (_agent != null)
+                {
+                    _agent.SpeedMultiplier = speedMultiplier;
+                }
             }
         }
 
-        // 스포너 등 외부에서 생성 직후 경로를 주입할 때 사용한다
-        public void Initialize(PathController controller)
+        private void Start()
         {
-            pathController = controller;
-            InitializeMover();
+            if (_agent == null && flowManager != null)
+            {
+                Initialize(flowManager);
+            }
         }
 
-        private void InitializeMover()
+        // 스포너 등 외부에서 생성 직후 회피 시스템에 등록할 때 사용한다
+        public void Initialize(EnemyFlowManager manager)
         {
-            _mover = new EnemyPathMover(pathController.PathSystem);
-            transform.position = _mover.CurrentPosition;
+            flowManager = manager;
+            _agent = flowManager.RegisterEnemy(moveSpeed);
+            _agent.SpeedMultiplier = speedMultiplier;
+            transform.position = _agent.Position;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
-            if (_mover == null)
+            if (_agent == null)
             {
                 return;
             }
 
-            transform.position = _mover.Advance(moveSpeed, Time.deltaTime);
+            transform.position = _agent.Position;
+        }
+
+        private void OnDestroy()
+        {
+            if (_agent != null && flowManager != null)
+            {
+                flowManager.UnregisterEnemy(_agent);
+            }
         }
     }
 }

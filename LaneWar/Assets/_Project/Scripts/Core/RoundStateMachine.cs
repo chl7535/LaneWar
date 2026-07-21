@@ -102,6 +102,17 @@ namespace LaneWar.Core
             }
         }
 
+        // 적 1마리가 사망했음을 알린다. 생존 수를 감소시켜 게임오버(누적 100) 판정에 반영한다
+        public void NotifyEnemyDied()
+        {
+            if (CurrentState == RoundState.GameOver)
+            {
+                return;
+            }
+
+            AliveEnemyCount = Math.Max(0, AliveEnemyCount - 1);
+        }
+
         private float GetDurationForState(RoundState state)
         {
             switch (state)

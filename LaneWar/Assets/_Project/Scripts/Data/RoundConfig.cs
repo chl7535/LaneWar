@@ -21,6 +21,9 @@ namespace LaneWar.Data
         [Header("보스")]
         [SerializeField] private int roundsPerBoss = 4;
 
+        [Header("경제 (라운드 종료 정산)")]
+        [SerializeField] private int roundClearBonus = 50;
+
         public float SpawnPhaseDuration => spawnPhaseDuration;
         public float IntermissionDuration => intermissionDuration;
         public float CountdownDuration => countdownDuration;
@@ -28,5 +31,12 @@ namespace LaneWar.Data
         public int EnemiesPerRound => enemiesPerRound;
         public int MaxAliveEnemies => maxAliveEnemies;
         public int RoundsPerBoss => roundsPerBoss;
+
+        // 라운드 종료 시 지급할 정산 보너스를 계산한다. 지금은 고정값이지만
+        // 나중에 라운드 번호에 비례하도록(예: roundClearBonus * roundNumber) 확장하기 쉽도록 호출부에서부터 라운드 번호를 받는다
+        public int GetRoundClearBonus(int roundNumber)
+        {
+            return roundClearBonus;
+        }
     }
 }
