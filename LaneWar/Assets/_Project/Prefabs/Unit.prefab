@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8327484233863438901}
   - component: {fileID: 761173401685873266}
   - component: {fileID: 8163881242987062186}
+  - component: {fileID: 900000101}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -127,4 +128,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Units.Unit
   unitData: {fileID: 0}
   bodyRenderer: {fileID: 761173401685873266}
-  selectionIndicatorRadius: 0.6
+  rangeIndicator: {fileID: 900000101}
+--- !u!114 &900000101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278161774822724922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20ff7905bc8e9e2bd104b6529de7afe, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Units.RangeIndicator

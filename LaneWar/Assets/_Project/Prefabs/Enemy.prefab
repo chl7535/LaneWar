@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4128449820153328357}
   - component: {fileID: 1476316472559516066}
   - component: {fileID: 7649155601162722784}
+  - component: {fileID: 900000201}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -144,3 +145,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Enemies.Enemy
   enemyData: {fileID: 11400000, guid: 4d7895acd6ea0b5408866e6567685691, type: 2}
+--- !u!114 &900000201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101161497321106371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b547e9270cd3169c824856b63ebab3e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Enemies.EnemyHealthBar
