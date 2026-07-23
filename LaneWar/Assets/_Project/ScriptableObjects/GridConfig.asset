@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f3656059140fb82ebd024289ddefd2, type: 3}
   m_Name: GridConfig
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Data.GridConfig
-  rows: 12
-  columns: 12
+  rows: 8
+  columns: 8
   floorHeight: 0

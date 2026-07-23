@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 656583127}
   - component: {fileID: 656583126}
   - component: {fileID: 656583125}
+  - component: {fileID: 656583128}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -442,7 +443,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -468,13 +469,57 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656583124}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 20, z: -20}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 20, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+--- !u!114 &656583128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656583124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &712391117
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +554,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.UI.RoundDebugHud
   roundManager: {fileID: 712391120}
   placementController: {fileID: 427319932}
+  difficultyConfig: {fileID: 11400000, guid: 9ad05b245c885ac4eb24bd1c47e02a75, type: 2}
+  debugEnemyData: {fileID: 11400000, guid: 4d7895acd6ea0b5408866e6567685691, type: 2}
 --- !u!114 &712391119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.EnemySpawner
   roundManager: {fileID: 712391120}
   roundConfig: {fileID: 11400000, guid: 463ee343a0d4c9c4fb94c3ebf0301f73, type: 2}
+  difficultyConfig: {fileID: 11400000, guid: 9ad05b245c885ac4eb24bd1c47e02a75, type: 2}
   pathController: {fileID: 1544659320}
   flowManager: {fileID: 1776744947}
   enemyRegistry: {fileID: 2102126023}
@@ -604,6 +652,129 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1544659321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &900000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 900000002}
+  - component: {fileID: 900000003}
+  - component: {fileID: 900000004}
+  m_Layer: 0
+  m_Name: GridManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &900000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772ab816909ba5a3d5d7103777ea23f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.GridManager
+  gridConfig: {fileID: 11400000, guid: 76bb6bf577267f20d92b694f47cde757, type: 2}
+  pathController: {fileID: 1544659320}
+  flowConfig: {fileID: 11400000, guid: d73a2f525eed5d84e9daf505a9698051, type: 2}
+  drawGizmos: 1
+  outerBoundsGizmoColor: {r: 0.9, g: 0.2, b: 0.2, a: 1}
+  placementBoundsGizmoColor: {r: 0.2, g: 0.9, b: 0.3, a: 1}
+--- !u!114 &900000004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c2ff3b521c9a71dde3744e0c97fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.GridView
+  gridManager: {fileID: 900000003}
+  placementController: {fileID: 427319932}
+  cellFillRatio: 0.9
+  heightOffset: 0.02
+  emptyColor: {r: 1, g: 1, b: 1, a: 0.18}
+  blockedColor: {r: 0.9, g: 0.15, b: 0.15, a: 0.35}
+  hoverColor: {r: 1, g: 1, b: 0.4, a: 0.55}
+  pulseSpeed: 2
+  pulseMinAlpha: 0.35
+  pulseMaxAlpha: 1
+--- !u!1 &900000005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 900000006}
+  - component: {fileID: 900000007}
+  m_Layer: 0
+  m_Name: PathFloorView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &900000006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000005}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900000007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5a00be1f83383d94c6147f4b0f3759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.PathFloorView
+  gridManager: {fileID: 900000003}
+  laneColor: {r: 0.16, g: 0.14, b: 0.12, a: 1}
+  placementColor: {r: 0.55, g: 0.6, b: 0.68, a: 1}
+  borderColor: {r: 1, g: 0.85, b: 0.2, a: 1}
+  borderThickness: 0.08
+  heightOffset: 0.01
 --- !u!1 &1264159062
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,14 +867,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Core.PathController
   waypoints:
-  - {fileID: 113146757}
-  - {fileID: 2007604143}
   - {fileID: 316526430}
   - {fileID: 365557644}
   - {fileID: 1357131864}
   - {fileID: 887762816}
   - {fileID: 1264159063}
   - {fileID: 2106002918}
+  - {fileID: 113146757}
+  - {fileID: 2007604143}
   gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   gizmoPointRadius: 0.3
 --- !u!4 &1544659321
@@ -1152,113 +1323,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1544659321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &900000001
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 900000002}
-  - component: {fileID: 900000003}
-  - component: {fileID: 900000004}
-  m_Layer: 0
-  m_Name: GridManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &900000002
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900000001}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &900000003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900000001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 772ab816909ba5a3d5d7103777ea23f5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.GridManager
-  gridConfig: {fileID: 11400000, guid: 76bb6bf577267f20d92b694f47cde757, type: 2}
-  pathController: {fileID: 1544659320}
-  flowConfig: {fileID: 11400000, guid: d73a2f525eed5d84e9daf505a9698051, type: 2}
---- !u!114 &900000004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900000001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021c2ff3b521c9a71dde3744e0c97fe0, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.GridView
-  gridManager: {fileID: 900000003}
-  placementController: {fileID: 427319932}
---- !u!1 &900000005
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 900000006}
-  - component: {fileID: 900000007}
-  m_Layer: 0
-  m_Name: PathFloorView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &900000006
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900000005}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &900000007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900000005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a00be1f83383d94c6147f4b0f3759, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Systems.PathFloorView
-  gridManager: {fileID: 900000003}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

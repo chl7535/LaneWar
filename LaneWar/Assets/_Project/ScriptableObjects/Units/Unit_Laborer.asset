@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: "\uC7A1\uBD80"
   tier: 1
   attackStyle: 0
-  range: 2
+  range: 5
   damage: 12
   attacksPerSecond: 1
   cost: 100

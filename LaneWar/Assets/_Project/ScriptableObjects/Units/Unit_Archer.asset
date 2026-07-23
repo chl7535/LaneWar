@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: "\uC544\uCC98"
   tier: 1
   attackStyle: 1
-  range: 5
+  range: 7
   damage: 12
   attacksPerSecond: 1
   cost: 100

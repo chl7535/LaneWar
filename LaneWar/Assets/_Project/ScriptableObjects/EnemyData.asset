@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: EnemyData
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Data.EnemyData
   maxHealth: 30
+  baseArmor: 5
+  killReward: 5

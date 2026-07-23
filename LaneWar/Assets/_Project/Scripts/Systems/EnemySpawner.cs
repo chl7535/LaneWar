@@ -10,6 +10,7 @@ namespace LaneWar.Systems
     {
         [SerializeField] private RoundManager roundManager;
         [SerializeField] private RoundConfig roundConfig;
+        [SerializeField] private DifficultyConfig difficultyConfig;
         [SerializeField] private PathController pathController;
         [SerializeField] private EnemyFlowManager flowManager;
         [SerializeField] private EnemyRegistry enemyRegistry;
@@ -53,11 +54,24 @@ namespace LaneWar.Systems
             movement.Initialize(flowManager);
 
             Enemy enemy = instance.GetComponent<Enemy>();
+            ApplyDifficultyScaling(enemy);
             enemy.Died += HandleEnemyDied;
             enemyRegistry.Register(enemy);
 
             _spawnedThisRound++;
             roundManager.NotifyEnemySpawned();
+        }
+
+        // 현재 라운드 기준으로 DifficultyConfig의 체력/방어력 배율을 계산해 스폰되는 적에게 1회 적용한다
+        private void ApplyDifficultyScaling(Enemy enemy)
+        {
+            int round = roundManager.CurrentRound;
+            EnemyData data = enemy.Data;
+
+            float scaledHealth = data.MaxHealth * difficultyConfig.GetHealthMultiplier(round);
+            float scaledArmor = data.BaseArmor * difficultyConfig.GetArmorMultiplier(round);
+
+            enemy.InitializeStats(scaledHealth, scaledArmor, difficultyConfig.ArmorEfficiencyConstant, difficultyConfig.LogDamageCalculations);
         }
 
         // 사망한 적을 타겟팅 레지스트리에서 제거하고, 라운드 생존 카운트 감소 + 처치 보상 지급을 처리한다

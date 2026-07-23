@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LaneWar.Data.UnitData
   unitName: "\uB9C8\uBC95\uC0AC"
   tier: 1
-  attackStyle: 2
+  attackStyle: 1
   range: 5
   damage: 12
   attacksPerSecond: 1
